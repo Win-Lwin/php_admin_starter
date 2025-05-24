@@ -9,7 +9,7 @@ class HomeController extends Controller
             'title' => 'Home Page',
             'foo' => 'bar',
         ];
-        return $this->view('home/index', $data);
+        return view('home/index', $data);
     }
 
     public function show($value){

@@ -1,13 +1,21 @@
 <?php
 
 class App {
+    protected $routes = [
+        'home' => 'HomeController',
+        'users' => 'UserController',
+        'blogs' => 'BlogController',
+        'auth' => 'AuthController'
+    ];
+
     protected $default_controller = 'NotFoundController';
     protected $default_method = 'index';
 
     public function __construct() {
 
         $url = getURL();
-        $controller = ucfirst($url[0] ?? 'home') . 'Controller';
+        $segment = $url[0] ?? 'home';
+        $controller = $this->routes[$segment] ??  $this->default_controller . 'Controller';
         $method = $url[1] ?? $this->default_method;
         $filename = '../app/controller/' . $controller . '.php';
 

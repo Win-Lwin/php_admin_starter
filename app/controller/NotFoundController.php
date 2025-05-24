@@ -9,6 +9,6 @@ class NotFoundController extends Controller
             'title' => '404 Not Found',
             'message' => 'The page you are looking for does not exist.',
         ];
-        return $this->view('errors/NotFound', $data);
+        return view('errors/NotFound', $data);
     }
 }
